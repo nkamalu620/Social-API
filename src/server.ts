@@ -1,6 +1,6 @@
 import express from 'express';
-import db from './config/connection.js';
-import routes from './routes/index.js';
+import mongoose from 'mongoose';
+import routes from './routes/index';
 
 const cwd = process.cwd();
 
@@ -16,7 +16,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
 
-db.once('open', () => {
+mongoose.connect('mongodb://localhost:27017/social-api', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
+
+mongoose.connection.once('open', () => {
   app.listen(PORT, () => {
     console.log(`API server for ${activity} running on port ${PORT}!`);
   });
