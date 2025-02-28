@@ -16,9 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
 
-mongoose.connect('mongodb://localhost:27017/social-api', {
-  useUnifiedTopology: true,
-});
+mongoose.connect('mongodb://localhost:27017/social-api');
 
 mongoose.connection.once('open', () => {
   app.listen(PORT, () => {
