@@ -17,9 +17,7 @@ app.use(express.json());
 app.use(routes);
 
 mongoose.connect('mongodb://localhost:27017/social-api', {
-  useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true,
 });
 
 mongoose.connection.once('open', () => {
