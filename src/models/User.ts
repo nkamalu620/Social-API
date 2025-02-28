@@ -1,4 +1,4 @@
-import { Schema, model, Document } from 'mongoose';
+import { Schema, model, Document, Types } from 'mongoose';
 
 interface IUser extends Document {
   username: string;
@@ -22,7 +22,6 @@ userSchema.virtual('friendCount').get(function() {
   return this.friends.length;
 });
 
-const Genre = model('User', userSchema);
-
+const User = model('User', userSchema);
 
 export default User;

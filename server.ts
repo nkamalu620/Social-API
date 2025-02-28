@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import routes from './routes/index';
+import routes from './src/routes/index';
 
 const cwd = process.cwd();
 
